@@ -4,6 +4,7 @@ filetype off                   " required!
 autocmd BufRead,BufNewFile  *.md,*.txt,*.TXT set filetype=markdown
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=/Users/Shared/Projects/dotfiles/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -78,3 +79,26 @@ set number
 
 " hiding a buffer with unsafed changes becomes possible
 set hidden
+
+
+if has("statusline") && !&cp
+    set laststatus=2  " always show the status bar
+
+    " Start the status line
+    set statusline=%f\ %m\ %r
+
+    " Finish the statusline
+    set statusline+=Line:%l/%L\ [%p%%]
+    set statusline+=\ Col:%v
+    set statusline+=\ Buf:#%n
+    set statusline+=\ [%b][0x%B]
+endif
+
+set laststatus=2
+" Show the current command in the lower right corner
+set showcmd
+
+" Show the current mode
+set showmode
+
+set mouse=nicr
