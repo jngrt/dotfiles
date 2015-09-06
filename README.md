@@ -1,13 +1,16 @@
 dotfiles
 ========
-
+Note to self
 ```
 cd
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.vim .vim
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 git config --global core.excludesfile '~/.gitignore'
 
 # in vim
-:BundleInstall
+:PlugInstall
 ```
