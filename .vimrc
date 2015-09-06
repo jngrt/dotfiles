@@ -3,63 +3,75 @@ filetype off                   " required!
 
 autocmd BufRead,BufNewFile  *.md,*.txt,*.TXT set filetype=markdown
 
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=/Users/Shared/Projects/dotfiles/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/Projects/dotfiles/.vim/plugged')
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" Make sure you use single quotes
+Plug 'junegunn/seoul256.vim'
+Plug 'xoria256.vim'
+Plug 'tomasr/molokai'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdtree'
+Plug 'yankstack'
+Plug 'gregsexton/MatchTag'
+Plug 'sjbach/lusty'
+" use <leader>lj to switch buffers
+Plug 'tomtom/tcomment_vim'
+Plug 'Syntastic'
+Plug 'vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'groenewege/vim-less'
+Plug 'editorconfig-vim'
+Plug 'trailing-whitespace'
+Plug 'yegappan/grep'
+Plug 'mxw/vim-jsx'
 
-"My bundles
-Bundle 'xoria256.vim'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'goatslacker/mango.vim'
-Bundle 'tomasr/molokai.git'
-Bundle 'JavaScript-Indent'
-Bundle 'The-NERD-tree'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'loremipsum'
-Bundle 'wincent/Command-T.git'
-" Bundle 'YankRing.vim' 
-Bundle 'yankstack'
-Bundle 'fugitive.vim'
-Bundle 'unimpaired.vim'
-Bundle 'nelstrom/vim-markdown-folding.git'
-Bundle 'gregsexton/MatchTag.git'
-Bundle 'sjbach/lusty.git' 
-"use <leader>lj to switch buffers 
-Bundle 'tomtom/tcomment_vim.git'
-Bundle 'davidhalter/jedi-vim.git'
-Bundle 'flazz/vim-colorschemes'
+" Add plugins to &runtimepath
+call plug#end()
 
 filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+
 
 "Other config
 set guioptions-=r
 set guioptions-=T
 let mapleader =","
 "set guifont=Ubuntu\ Mono\ 10
-set guifont=Menlo\ Regular:h14
-" set background=dark
+set guifont=Inconsolata:h16
+"set background=light
 syntax on
 set t_Co=256
-colorscheme xoria256 
+
+let g:syntastic_javascript_checkers = ['jshint']
+
+" favorite colors: dark
+colorscheme molokai
+" colorscheme xoria256
+" colorscheme blackdust
+" colorscheme desert
+" colorscheme Dark
+" colorscheme navajo-night
+" colorscheme rainbow_neon " < Cursor barely visible
+" colorscheme settlemyer
+" colorscheme wombat
+" light:
+" colorscheme beauty256
+" colorscheme blacklight
+"colorscheme solarized
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"colorscheme seoul256
+
 map <leader>d :execute 'NERDTreeToggle '.getcwd()<CR>
+" disable arrows for NERDTree
+let g:NERDTreeDirArrows=0
 
 "Indentation /tabs
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
+
+"For autocompletion in vaxe
+set autowrite
 
 "buffer cycling
 nnoremap <C-n> :bnext<CR>
@@ -71,6 +83,9 @@ set backupdir=~/tmp
 "nnoremap <silent> <F11> :YRShow<CR>
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_older_paste
+
+"Quicksave
+noremap <Leader>s :update<CR>
 
 " set lines=45
 " set columns=130
@@ -101,4 +116,34 @@ set showcmd
 " Show the current mode
 set showmode
 
-set mouse=nicr
+" Make mouse work in iTerm
+" option a - to make yanking of mouse selection work
+set mouse=nicra
+
+" Mouse in tmux and in terminal change cursorshape
+" tmux will only forward escape sequences to the terminal if surrounded by a
+" DCS sequence
+"
+" http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+
+ " map <c-f> :call JsBeautify()<cr>
+  " or
+ " autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+  " for html
+ " autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+  " for css or scss
+ " autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+
+  "nnoremap <Leader>f :let @c = line('.')<CR>:let @d = col('.')<CR>:w<CR>:%!~/jsbeautifier.py %<CR>:w<CR>:call cursor (@c, @d)<CR>
+  nnoremap <Leader>j :let @c = line('.')<CR>:let @d = col('.')<CR>:w<CR>:%!js-beautify --config ~/.jsbeautifyrc %<CR>:w<CR>:call cursor (@c, @d)<CR>
+  nnoremap <Leader>h :let @c = line('.')<CR>:let @d = col('.')<CR>:w<CR>:%!js-beautify --css %<CR>:w<CR>:call cursor (@c, @d)<CR>
+  nnoremap <Leader>c :let @c = line('.')<CR>:let @d = col('.')<CR>:w<CR>:%!js-beautify --html %<CR>:w<CR>:call cursor (@c, @d)<CR>
