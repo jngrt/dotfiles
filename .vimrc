@@ -27,6 +27,7 @@ Plug 'mxw/vim-jsx'
 Plug 'bling/vim-airline'
 Plug 'bling/vim-bufferline'
 Plug 'rking/ag.vim'
+Plug 'dkprice/vim-easygrep'
 
 " Add plugins to &runtimepath
 call plug#end()
