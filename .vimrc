@@ -11,7 +11,8 @@ Plug 'xoria256.vim'
 Plug 'tomasr/molokai'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
-Plug 'yankstack'
+"Plug 'yankstack'
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'gregsexton/MatchTag'
 Plug 'sjbach/lusty'
 " use <leader>lj to switch buffers
@@ -42,7 +43,8 @@ set guioptions-=r
 set guioptions-=T
 let mapleader =","
 "set guifont=Ubuntu\ Mono\ 10
-set guifont=Inconsolata:h16
+"set guifont=Inconsolata:h16
+set guifont=Inconsolata\ 10
 "set background=light
 syntax on
 set t_Co=256
