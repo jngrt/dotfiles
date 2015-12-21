@@ -26,3 +26,6 @@ antigen theme dogenpunk
 
 # Tell antigen that you're done.
 antigen apply
+
+export NVM_DIR="/home/jg/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
