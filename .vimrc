@@ -49,6 +49,10 @@ set guifont=Inconsolata\ 10
 syntax on
 set t_Co=256
 
+"disable beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 let g:syntastic_javascript_checkers = ['jshint']
 
 " favorite colors: dark
