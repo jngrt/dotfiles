@@ -3,7 +3,7 @@ filetype off                   " required!
 
 autocmd BufRead,BufNewFile  *.md,*.txt,*.TXT set filetype=markdown
 
-call plug#begin('~/Projects/dotfiles/.vim/plugged')
+call plug#begin('~/dotfiles/.vim/plugged')
 
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
