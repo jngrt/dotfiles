@@ -28,6 +28,6 @@ antigen theme dogenpunk
 antigen apply
 
 # export NVM_DIR="/home/jg/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # export NODE_PATH=$NODE_PATH:`npm root -g`
