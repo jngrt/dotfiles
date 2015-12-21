@@ -8,7 +8,7 @@ antigen bundle git
 antigen bundle heroku
 antigen bundle pip
 antigen bundle command-not-found
-antigen bundle ubuntu
+# antigen bundle ubuntu
 antigen bundle python
 antigen bundle nvm
 antigen bundle node
@@ -27,5 +27,7 @@ antigen theme dogenpunk
 # Tell antigen that you're done.
 antigen apply
 
-export NVM_DIR="/home/jg/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/home/jg/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# export NODE_PATH=$NODE_PATH:`npm root -g`
