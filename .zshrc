@@ -15,7 +15,9 @@ antigen bundle node
 antigen bundle npm
 antigen bundle colorize
 antigen bundle colored-man-pages
-
+antigen bundle edouard-lopez/yeoman-zsh-plugin
+antigen bundle bower
+antigen bundle gulp
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
