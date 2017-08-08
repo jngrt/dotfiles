@@ -25,10 +25,23 @@ Plug 'editorconfig-vim'
 Plug 'trailing-whitespace'
 Plug 'yegappan/grep'
 Plug 'mxw/vim-jsx'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'rking/ag.vim'
 Plug 'dkprice/vim-easygrep'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'oceanlight'
+Plug 'summerfruit256.vim'
+Plug 'AutumnLeaf'
+Plug 'tomlion/vim-solidity'
+Plug 'vimoutliner/vimoutliner'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'https://github.com/float168/vim-colors-cherryblossom.git'
+Plug 'https://github.com/lifepillar/vim-wwdc17-theme.git'
+Plug 'https://github.com/Rykka/colorv.vim.git'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -44,8 +57,9 @@ set guioptions-=T
 let mapleader =","
 "set guifont=Ubuntu\ Mono\ 10
 "set guifont=Inconsolata:h16
-set guifont=Inconsolata\ 10
-"set background=light
+"set guifont=Inconsolata\ 10
+set guifont=Anonymous\ Pro\ for\ Powerline\ Regular\ 12
+set background=light
 syntax on
 set t_Co=256
 
@@ -55,23 +69,7 @@ autocmd GUIEnter * set visualbell t_vb=
 
 let g:syntastic_javascript_checkers = ['jshint']
 
-" favorite colors: dark
-colorscheme molokai
-" colorscheme xoria256
-" colorscheme blackdust
-" colorscheme desert
-" colorscheme Dark
-" colorscheme navajo-night
-" colorscheme rainbow_neon " < Cursor barely visible
-" colorscheme settlemyer
-" colorscheme wombat
-" light:
-" colorscheme beauty256
-" colorscheme blacklight
-"colorscheme solarized
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-"colorscheme seoul256
+colorscheme summerfruit256
 
 map <leader>d :execute 'NERDTreeToggle '.getcwd()<CR>
 " disable arrows for NERDTree
@@ -95,6 +93,12 @@ set backupdir=~/tmp
 "nnoremap <silent> <F11> :YRShow<CR>
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_older_paste
+
+"allow for pasting using ctrl-shift-v
+"set clipboard=unnamed
+set clipboard=unnamedplus "now use y/p to copy to/yank from system clipboard
+" vnoremap <C-S-c> "*y "use ctrl-shift-c in visual/select mode
+" noremap <C-S-v> "*p "use ctrl-shift-v in normal mode to paste
 
 "Quicksave
 noremap <Leader>s :update<CR>
