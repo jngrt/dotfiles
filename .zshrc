@@ -27,10 +27,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen theme robbyrussell
 # antigen theme dogenpunk
 # antigen theme minimal
+# antigen theme agnoster
 antigen theme agnoster
 
 # Tell antigen that you're done.
 antigen apply
+
 
 # export NVM_DIR="/home/jg/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

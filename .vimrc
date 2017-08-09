@@ -42,6 +42,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'https://github.com/float168/vim-colors-cherryblossom.git'
 Plug 'https://github.com/lifepillar/vim-wwdc17-theme.git'
 Plug 'https://github.com/Rykka/colorv.vim.git'
+Plug 'https://github.com/noahfrederick/vim-hemisu.git'
+"https://github.com/itchyny/lightline.vim 
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -50,6 +52,7 @@ filetype plugin indent on     " required!
 
 " airline config
 let g:airline#extensions#tabline#enabled = 1
+
 
 "Other config
 set guioptions-=r
@@ -69,7 +72,8 @@ autocmd GUIEnter * set visualbell t_vb=
 
 let g:syntastic_javascript_checkers = ['jshint']
 
-colorscheme summerfruit256
+"colorscheme summerfruit256
+colorscheme PaperColor
 
 map <leader>d :execute 'NERDTreeToggle '.getcwd()<CR>
 " disable arrows for NERDTree
