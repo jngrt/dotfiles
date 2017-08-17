@@ -44,7 +44,8 @@ Plug 'https://github.com/lifepillar/vim-wwdc17-theme.git'
 Plug 'https://github.com/Rykka/colorv.vim.git'
 Plug 'https://github.com/noahfrederick/vim-hemisu.git'
 "https://github.com/itchyny/lightline.vim 
-
+Plug 'briancollins/vim-jst'
+Plug 'wavded/vim-stylus'
 " Add plugins to &runtimepath
 call plug#end()
 
