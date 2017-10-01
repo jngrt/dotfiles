@@ -184,4 +184,4 @@ exec nextcloud
 exec synology-cloud-station-drive
 
 # natural scrolling toucpad
-synclient HorizScrollDelta=-114 VertScrollDelta=-113
+exec synclient HorizScrollDelta=-114 VertScrollDelta=-113
