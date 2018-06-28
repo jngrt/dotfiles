@@ -1,7 +1,7 @@
-source ~/dotfiles/zsh-antigen/antigen.zsh
-
+# source ~/dotfiles/zsh-antigen/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
@@ -43,9 +43,9 @@ antigen apply
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # fix for not remembering ssh passphrases
-eval `gnome-keyring-daemon --start`
-export WORKON_HOME=/home/jg/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export PIP_VIRTUALENV_BASE=/home/jg/.virtualenvs
-alias xclip="xclip -selection c"
-source ~/.profile
+# eval `gnome-keyring-daemon --start`
+# export WORKON_HOME=/home/jg/.virtualenvs
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# export PIP_VIRTUALENV_BASE=/home/jg/.virtualenvs
+# alias xclip="xclip -selection c"
+# source ~/.profile
