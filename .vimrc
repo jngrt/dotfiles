@@ -40,17 +40,17 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 
 " FILES/BUFFERS
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Lusty Juggler - use <leader>lj to switch buffers
 "Plug 'sjbach/lusty'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 
 " EDITING
-Plug 'editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'trailing-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'gregsexton/MatchTag'
 Plug 'junegunn/vim-easy-align'
 Plug 'tomtom/tcomment_vim'
@@ -99,7 +99,8 @@ let mapleader =","
 "set guifont=Inconsolata:h16
 "set guifont=Inconsolata\ 10
 " set guifont=Anonymous\ Pro\ for\ Powerline\ Regular\ 12
-set guifont=Hack\ 11
+" set guifont=Hack\ 11
+set guifont=Hasklig-Regular:h13
 set background=light
 syntax on
 set t_Co=256
@@ -113,7 +114,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 colorscheme PaperColor
 
-"map <leader>d :execute 'NERDTreeToggle '.getcwd()<CR>
+map <leader>d :execute 'NERDTreeToggle '.getcwd()<CR>
 " disable arrows for NERDTree
 "let g:NERDTreeDirArrows=0
 
@@ -148,8 +149,8 @@ noremap <Leader>s :update<CR>
 " set lines=45
 " set columns=130
 
-" set number
-set relativenumber
+set number
+" set relativenumber
 
 " hiding a buffer with unsafed changes becomes possible
 set hidden
@@ -211,14 +212,36 @@ map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<
 
 " NETRW / FILE EXPLORER
 " https://shapeshed.com/vim-netrw/
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_browsex_viewer= "xdg-open"
-
-
-
+" let g:netrw_liststyle = 3
+" let g:netrw_banner = 0
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_browsex_viewer= "xdg-open"
+"
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+"
+" " Toggle Vexplore with Ctrl-E
+" function! ToggleVExplorer()
+"   if exists("t:expl_buf_num")
+"       let expl_win_num = bufwinnr(t:expl_buf_num)
+"       if expl_win_num != -1
+"           let cur_win_nr = winnr()
+"           exec expl_win_num . 'wincmd w'
+"           close
+"           exec cur_win_nr . 'wincmd w'
+"           unlet t:expl_buf_num
+"       else
+"           unlet t:expl_buf_num
+"       endif
+"   else
+"       exec '1wincmd w'
+"       Vexplore
+"       let t:expl_buf_num = bufnr("%")
+"   endif
+" endfunction
+" map <leader>d :call ToggleVExplorer()<CR>
 
 " wildmenu
 set wildmenu
